@@ -1,0 +1,16 @@
+<div class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Edit Pegawai
+      </ion-label>
+    </ion-list-header>  
+    <ion-item>
+      <ion-label>Nama</ion-label>
+      <ion-input [value]="pegawai_nama" (input)="setNama($event.target.value)"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="pegawaiPost()">
+    Edit
+  </ion-button>
+</div>

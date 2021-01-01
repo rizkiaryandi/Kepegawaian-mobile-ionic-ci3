@@ -1,0 +1,31 @@
+<div class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <ion-label>
+        Tambah Pegawai
+      </ion-label>
+    </ion-list-header>  
+    <ion-item>
+      <ion-label>Nama</ion-label>
+      <ion-input [value]="pegawai_nama" (input)="setNama($event.target.value)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>NIK</ion-label>
+      <ion-input [value]="pegawai_nik" (input)="setNik($event.target.value)"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Tanggal Lahir</ion-label>
+      <ion-datetime placeholder="Pilih"  [value]="pegawai_tanggal_lahir" (change)="setTgl($event.target.value)"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>Jenis Kelamin</ion-label>
+      <ion-select placeholder="Pilih" [value]="pegawai_jenis_kelamin" (change)="setJk($event.target.value)">
+        <ion-select-option value="L">Laki-laki</ion-select-option>
+        <ion-select-option value="P">Perempuan</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-button expand="block" (click)="pegawaiPost()">
+    Tambah
+  </ion-button>
+</div>

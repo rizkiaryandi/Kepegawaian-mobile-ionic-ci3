@@ -1,0 +1,78 @@
+<ion-content [fullscreen]="true" scrollY="false">
+  <div id="head-container" [ngStyle]="homeStyle.profile">
+    <ion-header [translucent]="true" class="ion-no-border">
+      <ion-toolbar color="transparent">
+        <ion-title>
+          <b><ion-text color="primary">Kepe</ion-text><ion-text color="success">gawaian</ion-text></b>
+        </ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <div id="profile">
+      <ion-item lines="none" color="transparent" button>
+        <ion-avatar slot="start">
+          <img src="/assets/img/profil.jpg" alt="profil">
+        </ion-avatar>
+        <ion-label>
+          <h2>
+            <b>Admin Perusahaan</b>
+          </h2>
+          <p>
+            <ion-text></ion-text>
+          </p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex quia eos reprehenderit blanditiis, numquam perspiciatis temporibus libero recusandae quod asperiores doloremque provident veritatis error laborum distinctio impedit harum praesentium corporis?
+          </p>
+        </ion-label>
+      </ion-item>
+      <ion-grid id="status" >
+        <ion-row class="ion-text-center">
+          <ion-col size="6">
+            <h6><b>Status</b></h6>
+            <h6>Aktif</h6>
+          </ion-col>
+          <ion-col size="6">
+            <h6><b>Pegawai</b></h6>
+            <h6>{{jumlahPegawai}}</h6>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+  <div id="body-container" (scroll)="scrollY($event)" [ngStyle]="homeStyle.bodyContainer">
+    <div id="body-container-b" [ngStyle]="homeStyle.bodyContainerB">
+      <div id="pegawai">
+        <ion-item color="transparent" lines="none">
+          <h4>
+            <b>Pegawai</b>
+          </h4>
+          <ion-buttons slot="end">
+            <ion-button color="light" size="medium" (click)="presentTambah()">
+              <ion-icon name="add-outline"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+        <div>
+          <ion-item color="transparent" lines="none" button *ngFor="let peg of dataPegawai">
+            <ion-label>
+              <h2>
+                <b>{{peg.pegawai_nama}}</b>
+              </h2>
+              <p><b>NIK: </b>{{peg.pegawai_nik}}</p>
+              <p><b>Tanggal Lahir: </b>{{peg.pegawai_tanggal_lahir}}</p>
+              <p><b>Jenis Kelamin: </b>{{peg.pegawai_jenis_kelamin}}</p>
+              <ion-buttons>
+                <ion-button color="light" (click)="presentEdit(peg.pegawai_id)">
+                  <ion-icon name="create-outline"></ion-icon>
+                </ion-button>
+                <ion-button color="light" (click)="deletePegawai(peg.pegawai_id)">
+                  <ion-icon name="trash-outline"></ion-icon>
+                </ion-button>
+              </ion-buttons>
+            </ion-label>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
